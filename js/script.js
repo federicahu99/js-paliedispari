@@ -9,28 +9,25 @@
     4- inverto l'ordine della parola.
     5- vedo se il valore e tipo sono uguali.
 */
-// //prompt per l'utente
-// const userWord = prompt('Scegli la parola di cui vuoi sapere se è palindroma:');
+ //prompt per l'utente
+ const userWord = prompt('Scegli la parola di cui vuoi sapere se è palindroma:' , 'aia');
 
-// //funzione 
-// function isPalindrome (userWord) {
-//     let answer = false;
-//     let word= '';
-// //inverto lettere
-//     for (let i = userWord.length -1; i >= 0; i-- ) {
-//         word += userWord[i];
-//     } 
-// //se la parola del promp è uguale al nostro risultato allora = true
-//     if (word == userWord) {
-//         answer = true;
-//     }
-
-//     return answer;
-// }
-
-// const answer = isPalindrome(userWord); //obbligatorio per vedere il risultato della function
-// console.log(answer)
-
+ //funzione 
+ function isPalindrome (userWord) {
+     let answer = false;
+     let word= '';
+ //inverto lettere
+     for (let i = userWord.length -1; i >= 0; i-- ) {
+         word += userWord[i];
+     } 
+ //se la parola del promp è uguale al nostro risultato allora = true
+     if (word == userWord) {
+         answer = true;
+     }
+     return answer;
+ }
+ const answer = isPalindrome(userWord); //obbligatorio per vedere il risultato della function
+ console.log(answer)
 
 /*
  Consegna:
@@ -49,7 +46,7 @@
 */
 
 // prompt per pari o dispari
-const choiseOfOddEven = prompt('scegli tra "pari" o "dispari"').trim();
+const choiseOfOddEven = prompt('scegli tra "pari" o "dispari"', 'pari').trim();
 //controllo
 if (choiseOfOddEven != 'pari' || choiseOfOddEven != 'dispari') {
     console.error('scegli tra "pari" e "dispari"');
@@ -57,7 +54,7 @@ if (choiseOfOddEven != 'pari' || choiseOfOddEven != 'dispari') {
 console.log(choiseOfOddEven)
 
 //prompt per numero tra 1 e 5 
-const choiseOfNumber = parseInt(prompt('scegli un numero tra 1 e 5'));
+const choiseOfNumber = parseInt(prompt('scegli un numero tra 1 e 5' , 4));
 //controllo
 if (choiseOfNumber < 1 || choiseOfNumber > 5 ) {
     console.error('scegli un numero compreso tra 1 e 5');
@@ -67,15 +64,27 @@ console.log(choiseOfNumber)
 
 // function per numero casuale
 function getNumber ( min = 1 , max = 5) {
-    randomNumber ='';
-    parseInt(randomNumber);
-    randomNumber += Math.floor(Math.random() * ( max - min )) + min;
+    let randomNumber = parseInt(Math.floor(Math.random() * ( max - min )) + min);
 
     return randomNumber;
 }
 
 const botNumber = getNumber( min = 1 , max = 5);
-console.log(randomNumber)
+console.log(botNumber)
+//somma numero bot e user
+const currentSum= botNumber + choiseOfNumber;
+console.log(currentSum);
 
-const sum= randomNumber + choiseOfNumber;
-console.log(sum);
+//funzione per pari dispari
+function isEven (sum) { //dove sum è un numero a cui vado a dare il valore nel momento in cui lo richiamo (riga 89)
+    let isNumberEven= 'Vince Pari!';
+
+    if ( sum % 2 !== 0) {
+        isNumberEven= 'Vince dispari!';
+    }
+
+    return isNumberEven;
+} 
+
+const winner = isEven(currentSum);
+console.log(winner)
