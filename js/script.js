@@ -9,7 +9,7 @@
     4- inverto l'ordine della parola.
     5- vedo se il valore e tipo sono uguali.
 */
-//propmt per l'utente
+//prompt per l'utente
 const userWord = prompt('Scegli la parola di cui vuoi sapere se è palindroma:');
 
 //funzione 
@@ -17,7 +17,7 @@ function isPalindrome (userWord) {
     let answer = false;
     let word= '';
 //inverto lettere
-     for (let i = userWord.lenght -1; i >= 0; i-- ) {
+    for (let i = userWord.length -1; i >= 0; i-- ) {
         word += userWord[i];
     } 
 //se la parola del promp è uguale al nostro risultato allora = true
@@ -27,4 +27,7 @@ function isPalindrome (userWord) {
 
     return answer;
 }
+
+const answer = isPalindrome(userWord); //obbligatorio per vedere il risultato della function
+console.log(answer)
 
