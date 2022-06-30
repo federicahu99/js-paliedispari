@@ -50,7 +50,6 @@ const choiseOfOddEven = prompt('scegli tra "pari" o "dispari"', 'pari').trim();
 //controllo
 if (choiseOfOddEven != 'pari' && choiseOfOddEven != 'dispari') {
     console.error('scegli tra "pari" e "dispari"');
-    location.reload();
 }
 console.log(choiseOfOddEven)
 
@@ -65,8 +64,7 @@ console.log(choiseOfNumber)
 
 // function per numero casuale
 function getNumber ( min = 1 , max = 5) {
-    let randomNumber = parseInt(Math.floor(Math.random() * ( max - min )) + min);
-
+    let randomNumber = parseInt(Math.floor(Math.random() * ( max +1  - min )) + min);
     return randomNumber;
 }
 
@@ -77,15 +75,20 @@ const currentSum= botNumber + choiseOfNumber;
 console.log(currentSum);
 
 //funzione per pari dispari
-function isEven (sum) { //dove sum è un numero a cui vado a dare il valore nel momento in cui lo richiamo (riga 89)
-    let isNumberEven= 'Vince Pari!';
-
-    if ( sum % 2 !== 0) {
-        isNumberEven= 'Vince dispari!';
+function isEven(sum) { //dove sum è un numero a cui vado a dare il valore nel momento in cui lo richiamo (riga 88)
+    let isNumberEven= false;
+    if ( sum % 2 == 0) {
+        isNumberEven= true;
     }
 
     return isNumberEven;
 } 
 
-const winner = isEven(currentSum);
-console.log(winner)
+const finalResult = isEven();
+
+//vincitore
+if (finalResult == true && choiseOfOddEven == 'pari' || finalResult !== true && choiseOfOddEven !== 'pari' ) {
+    console.log('Hai vinto! :D')
+} else {
+    console.log('Hai perso! :(')
+}
