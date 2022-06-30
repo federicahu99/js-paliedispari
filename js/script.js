@@ -48,8 +48,9 @@
 // prompt per pari o dispari
 const choiseOfOddEven = prompt('scegli tra "pari" o "dispari"', 'pari').trim();
 //controllo
-if (choiseOfOddEven != 'pari' || choiseOfOddEven != 'dispari') {
+if (choiseOfOddEven != 'pari' && choiseOfOddEven != 'dispari') {
     console.error('scegli tra "pari" e "dispari"');
+    location.reload();
 }
 console.log(choiseOfOddEven)
 
