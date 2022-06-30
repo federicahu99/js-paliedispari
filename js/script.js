@@ -46,7 +46,7 @@
 */
 
 // prompt per pari o dispari
-const choiseOfOddEven = prompt('scegli tra "pari" o "dispari"', 'pari').trim();
+const choiseOfOddEven = prompt('scegli tra "pari" o "dispari"', 'pari').trim().toLocaleLowerCase();
 //controllo
 if (choiseOfOddEven != 'pari' && choiseOfOddEven != 'dispari') {
     console.error('scegli tra "pari" e "dispari"');
@@ -68,7 +68,7 @@ function getNumber ( min = 1 , max = 5) {
     return randomNumber;
 }
 
-const botNumber = getNumber( min = 1 , max = 5);
+const botNumber = getNumber( 1 , 5);
 console.log(botNumber)
 //somma numero bot e user
 const currentSum= botNumber + choiseOfNumber;
@@ -77,14 +77,14 @@ console.log(currentSum);
 //funzione per pari dispari
 function isEven(sum) { //dove sum è un numero a cui vado a dare il valore nel momento in cui lo richiamo (riga 88)
     let isNumberEven= false;
-    if ( sum % 2 == 0) {
+    if ( currentSum % 2 == 0) {
         isNumberEven= true;
     }
 
     return isNumberEven;
 } 
 
-const finalResult = isEven();
+const finalResult = isEven(choiseOfNumber);
 
 //vincitore
 if (finalResult == true && choiseOfOddEven == 'pari' || finalResult !== true && choiseOfOddEven !== 'pari' ) {
